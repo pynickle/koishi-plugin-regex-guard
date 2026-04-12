@@ -1,0 +1,226 @@
+{
+  "pluginName": "正则守卫",
+  "pluginDescription": "管理、校验和整理正则规则。",
+  "config": {
+    "groups": {
+      "permissions": "权限与调试",
+      "rules": "规则配置",
+      "console": "控制台"
+    },
+    "fields": {
+      "adminIds": "管理员 ID",
+      "debugMode": "调试模式",
+      "enabled": "启用插件",
+      "defaultScope": "默认作用域",
+      "maxRules": "最大规则数",
+      "consoleEnabled": "启用控制台页"
+    },
+    "hints": {
+      "adminIds": "允许管理规则的用户 ID 列表。",
+      "debugMode": "输出更多调试信息。",
+      "enabled": "关闭后将不处理任何规则。",
+      "defaultScope": "新建规则的默认作用范围。",
+      "maxRules": "单个机器人实例允许保存的最大规则数量。",
+      "consoleEnabled": "在 Koishi 控制台中注册一个页面入口。"
+    }
+  },
+  "commands": {
+    "rguard": {
+      "description": "管理正则守卫规则",
+      "messages": {
+        "notAdmin": "你没有权限执行此命令。",
+        "booleanTrue": "是",
+        "booleanFalse": "否",
+        "enabledLabel": "启用",
+        "disabledLabel": "禁用",
+        "emptyValue": "（空）",
+        "ruleCreated": "规则 #{0} 创建成功。",
+        "ruleUpdated": "规则 #{0} 更新成功。",
+        "ruleDeleted": "规则 #{0} 已删除。",
+        "ruleEnabled": "规则 #{0} 已启用。",
+        "ruleDisabled": "规则 #{0} 已禁用。",
+        "ruleNotFound": "规则 #{0} 不存在。",
+        "invalidPage": "无效的页码：{0}。",
+        "pageOutOfRange": "页码 {0} 超出范围，最大页数为 {1}。",
+        "ruleListEmpty": "当前没有规则。",
+        "ruleList": "规则列表（第 {0}/{1} 页，共 {2} 条）：\n{3}",
+        "ruleListItem": "#{0} [{1}] 优先级={2} 概率={3}% /{4}/{5}",
+        "ruleDetail": "规则 #{0}:\n模式: /{1}/{2}\n状态: {3}\n优先级: {4}\n触发概率: {5}%\n目标群: {6}\n额外白名单: {7}\n管理员豁免: {8}\n撤回: {9}\n回复: {10}\n禁言时长: {11}\n创建时间: {12}\n更新时间: {13}\n元数据: {14}",
+        "testNoMatch": "测试结果：未匹配任何规则。\n原因：{0}",
+        "testMatch": "测试结果：\n命中规则：#{0}\n触发概率：{1}%\n匹配文本：{2}\n回复内容：{3}\n是否撤回：{4}\n禁言时长：{5}",
+        "exportSuccess": "导出成功。\n{0}",
+        "invalidImportMode": "导入模式不合法：{0}。仅支持 merge 或 replace。",
+        "importSuccess": "导入成功：成功 {0} 条，失败 {1} 条。",
+        "importPartial": "导入完成：成功 {0} 条，失败 {1} 条。\n{2}",
+        "importErrorItem": "第 {0} 条：{1}",
+        "invalidInteger": "字段 {0} 需要填写整数。",
+        "invalidBoolean": "字段 {0} 需要填写布尔值。",
+        "arrayJsonRequired": "需要提供 JSON 数组。",
+        "objectJsonRequired": "需要提供 JSON 对象。",
+        "unsupportedField": "不支持更新字段：{0}。",
+        "error": "错误：{0}"
+      }
+    }
+  },
+  "console": {
+    "pageTitle": "正则守卫",
+    "tabs": {
+      "rules": "规则列表",
+      "test": "测试匹配",
+      "importExport": "导入/导出",
+      "debug": "调试日志"
+    },
+    "cards": {
+      "rules": "规则列表",
+      "editor": "规则编辑",
+      "test": "测试匹配",
+      "importExport": "导入/导出",
+      "debug": "调试日志"
+    },
+    "form": {
+      "pattern": "正则表达式",
+      "flags": "正则标志",
+        "priority": "优先级",
+        "probability": "触发概率（0-100）",
+        "enabled": "启用规则",
+      "targetGroups": "目标群组 ID（逗号分隔）",
+      "whitelist": "额外白名单用户 ID（逗号分隔）",
+      "adminExempt": "管理员豁免",
+      "recallEnabled": "启用撤回",
+      "replyTemplate": "回复模板",
+      "muteDuration": "禁言时长（秒，0 表示不禁言）",
+      "testContent": "测试内容",
+      "nickname": "昵称（可选）",
+      "groupId": "群组 ID（可选）",
+      "userId": "用户 ID（可选）"
+    },
+    "placeholders": {
+      "pattern": "例如：^hello",
+      "flags": "例如：gi",
+      "targetGroups": "例如：123456,789012",
+      "whitelist": "例如：123,456",
+      "replyTemplate": "例如：请注意言辞！",
+      "testContent": "输入你想测试的消息内容……"
+    },
+    "actions": {
+      "create": "创建规则",
+      "edit": "编辑",
+      "delete": "删除",
+      "save": "保存",
+      "cancel": "取消",
+      "refresh": "刷新",
+      "runTest": "运行测试",
+      "downloadBackup": "下载备份",
+      "importNow": "执行导入",
+      "clear": "清空"
+    },
+    "ruleList": {
+      "deleteConfirm": "确定要删除规则 {0} 吗？此操作不可恢复。"
+    },
+    "hints": {
+      "replyTemplateVariables": "可用变量：{0}、{1}（捕获组）、{user_id}、{group_id}、{nickname}"
+    },
+    "test": {
+      "resultTitle": "测试结果",
+      "matchStatus": "匹配状态",
+      "triggeredRuleId": "触发规则 ID",
+        "reason": "原因",
+        "selectedRuleTitle": "命中规则信息",
+        "matchDetailsTitle": "正则匹配详情",
+      "fullMatch": "完整匹配文本",
+      "captureGroups": "捕获组",
+      "actionPlanTitle": "执行计划",
+      "shouldRecall": "撤回消息",
+      "shouldReply": "回复发送者",
+      "replyContent": "内容",
+      "shouldMute": "禁言",
+      "muteDuration": "时长"
+    },
+    "importExport": {
+      "exportTitle": "导出规则",
+      "exportDescription": "将当前所有规则导出为 JSON 格式，包含优先级和目标群组配置。",
+      "importTitle": "导入规则",
+      "importDescription": "从本地加载之前备份的 JSON 文件。",
+      "importMode": "导入模式",
+      "selectFile": "选择文件",
+      "modeMerge": "追加 / 合并",
+      "modeReplace": "清空并替换",
+      "importResult": "成功导入 {0} 条规则，失败 {1} 条。",
+      "importErrorItem": "索引 {0}：{1}"
+    },
+    "debug": {
+      "autoRefresh": "自动刷新",
+      "guildLabel": "群",
+      "userLabel": "人",
+      "viewDetail": "查看详情",
+      "empty": "暂无日志记录",
+      "columns": {
+        "time": "时间",
+        "event": "事件",
+        "scope": "平台 / 群组 / 用户",
+        "result": "动作 / 结果",
+        "detail": "详情"
+      }
+    },
+    "status": {
+      "matched": "已命中",
+      "notMatched": "未命中",
+      "success": "成功",
+      "failure": "失败"
+    },
+    "errors": {
+      "loadRulesFailed": "加载规则失败。",
+      "createRuleFailed": "创建规则失败。",
+      "updateRuleFailed": "更新规则失败。",
+      "deleteRuleFailed": "删除规则失败。",
+      "enableRuleFailed": "启用规则失败。",
+      "disableRuleFailed": "禁用规则失败。",
+      "importRulesFailed": "导入规则失败。",
+      "exportRulesFailed": "导出规则失败。",
+      "loadDebugEntriesFailed": "加载调试日志失败。",
+      "testFailed": "测试失败。"
+    },
+    "units": {
+      "seconds": "秒"
+    }
+  },
+  "errors": {
+    "invalidInteger": "字段 {0} 需要填写整数。",
+    "invalidBoolean": "字段 {0} 需要填写布尔值。",
+    "arrayJsonRequired": "需要提供 JSON 数组。",
+    "objectJsonRequired": "需要提供 JSON 对象。",
+    "unsupportedField": "不支持更新字段：{0}。",
+    "ruleInputObject": "规则输入必须是对象。",
+    "patternRequired": "pattern 为必填项，且必须是非空字符串。",
+    "flagsString": "flags 必须是字符串。",
+    "invalidRegex": "正则表达式无效：{0}",
+    "priorityNumber": "priority 必须是有效数字。",
+    "probabilityNumber": "probability 必须是有效数字。",
+    "probabilityRange": "probability 必须在 0 到 100 之间。",
+    "muteDurationNumber": "muteDuration 必须是有效数字。",
+    "muteDurationNonNegative": "muteDuration 必须大于等于 0。",
+    "arrayOfStrings": "{0} 必须是字符串数组。",
+    "arrayStringItem": "{0}[{1}] 必须是字符串。",
+    "metadataObject": "metadata 必须是对象。",
+    "importPayloadObject": "导入载荷必须是对象。",
+    "importPayloadMissingVersion": "导入载荷缺少必填的 version 字段。",
+    "importPayloadUnsupportedVersion": "不支持的导入版本：{0}",
+    "importPayloadRulesArray": "导入载荷中的 rules 必须是数组。",
+    "importRuleObject": "规则必须是对象。",
+    "invalidRuleInput": "规则输入不合法。",
+    "importModeInvalid": "导入模式必须是 merge 或 replace。",
+    "ruleIdInvalid": "规则 ID 必须是非负整数。",
+    "debugLimitInvalid": "调试日志条数限制必须是非负数。",
+    "invalidImportFile": "导入文件格式无效。",
+    "databaseActionFailed": "{0}失败：{1}",
+    "databaseActions": {
+      "createRule": "创建规则",
+      "listRules": "读取规则列表",
+      "getRule": "读取规则 #{0}",
+      "updateRule": "更新规则 #{0}",
+      "deleteRule": "删除规则 #{0}",
+      "enableRule": "启用规则 #{0}",
+      "disableRule": "禁用规则 #{0}"
+    }
+  }
+}
