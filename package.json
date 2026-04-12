@@ -11,7 +11,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/pynickle/koishi-plugin-regex-guard"
+    "url": "git+https://github.com/pynickle/koishi-plugin-regex-guard.git"
   },
   "license": "AGPL-3.0-only",
   "scripts": {
