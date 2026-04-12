@@ -1,6 +1,6 @@
 import { onMounted, ref } from 'vue'
 import { receive, send } from '@koishijs/client'
-import type { DebugLogEntry } from '../../src/types/index.js'
+import type { DebugLogEntry } from '../../src'
 import { t } from '../i18n'
 
 const entries = ref<DebugLogEntry[]>([])

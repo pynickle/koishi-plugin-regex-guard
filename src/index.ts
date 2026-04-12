@@ -13,6 +13,21 @@ export const name = 'regex-guard';
 
 export const inject = ['database'];
 
+declare module '@koishijs/plugin-console' {
+    interface Events {
+        'regex-guard:get-debug-entries'(limit: number): any;
+        'regex-guard:list-rules'(): any;
+        'regex-guard:get-rule'(id: number): any;
+        'regex-guard:create-rule'(input: any): any;
+        'regex-guard:update-rule'(id: number, input: any): any;
+        'regex-guard:delete-rule'(id: number): any;
+        'regex-guard:enable-rule'(id: number): any;
+        'regex-guard:disable-rule'(id: number): any;
+        'regex-guard:import-rules'(payload: any, mode: 'merge' | 'replace'): any;
+        'regex-guard:export-rules'(): any;
+    }
+}
+
 export * from './config/config';
 export * from './core';
 export * from './runtime/index.js';
