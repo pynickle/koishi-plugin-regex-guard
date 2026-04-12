@@ -13,7 +13,7 @@
     "type": "git",
     "url": "https://github.com/pynickle/koishi-plugin-regex-guard"
   },
-  "license": "MIT",
+  "license": "AGPL-3.0-only",
   "scripts": {
     "lint": "npx oxlint ./src",
     "lint:fix": "npx oxlint ./src --fix",
