@@ -1,6 +1,6 @@
 import type { Context } from 'koishi';
-import { validateRegex } from '../core/engine.js';
-import type { RegexGuardRule, RegexGuardRuleInput } from '../types/index.js';
+import { validateRegex } from '../core/engine';
+import type { RegexGuardRule, RegexGuardRuleInput } from '../types';
 
 interface RuleListFilters {
     enabled?: boolean;

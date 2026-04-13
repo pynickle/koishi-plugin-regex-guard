@@ -1,5 +1,5 @@
 import type { Session } from 'koishi';
-import type { Config } from '../../config/config.js';
+import type { Config } from '../../config/config';
 
 export function isAdmin(session: Session, cfg: Config): boolean {
     return cfg.adminIds?.includes(session.userId) ?? false;

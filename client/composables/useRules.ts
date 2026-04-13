@@ -1,6 +1,6 @@
 import { onMounted, ref } from 'vue'
 import { receive, send } from '@koishijs/client'
-import type { RegexGuardRule, RegexGuardRuleInput, ImportExportPayload, ImportResult } from '../../src'
+import type { RegexGuardRule, RegexGuardRuleInput, ImportExportPayload, ImportResult } from '../../src/types/index.js'
 import { t } from '../i18n'
 
 const rules = ref<RegexGuardRule[]>([])

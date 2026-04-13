@@ -1,7 +1,7 @@
 import type { Context } from 'koishi';
-import { DebugLogService } from './debug-log.js';
-import { RuleImportExportService, ruleImportExportService } from './import-export.js';
-import { RuleService, ruleService } from './rule-service.js';
+import { DebugLogService } from './debug-log';
+import { RuleImportExportService, ruleImportExportService } from './import-export';
+import { RuleService, ruleService } from './rule-service';
 
 declare module 'koishi' {
     interface Context {
@@ -11,9 +11,9 @@ declare module 'koishi' {
     }
 }
 
-export * from './debug-log.js';
-export * from './import-export.js';
-export * from './rule-service.js';
+export * from './debug-log';
+export * from './import-export';
+export * from './rule-service';
 
 export function provideDebugLog(ctx: Context, maxSize: number, enabled: boolean): DebugLogService {
     const debugLog = new DebugLogService(maxSize, enabled);

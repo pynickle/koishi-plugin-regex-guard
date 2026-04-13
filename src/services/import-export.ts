@@ -1,6 +1,6 @@
 import type { Context } from 'koishi';
-import type { ImportExportPayload, ImportResult, RegexGuardRuleInput } from '../types/index.js';
-import { RuleService, ruleService } from './rule-service.js';
+import type { ImportExportPayload, ImportResult, RegexGuardRuleInput } from '../types';
+import { RuleService, ruleService } from './rule-service';
 
 function isObject(value: unknown): value is Record<string, unknown> {
     return typeof value === 'object' && value !== null && !Array.isArray(value);

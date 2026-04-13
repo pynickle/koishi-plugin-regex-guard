@@ -1,4 +1,4 @@
-import type { DebugLogEntry } from '../types/index.js';
+import type { DebugLogEntry } from '../types';
 
 export class DebugLogService {
     private readonly entries: DebugLogEntry[] = [];

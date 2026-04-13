@@ -2,11 +2,11 @@ import { Context } from 'koishi';
 import {} from '@koishijs/plugin-console';
 import { resolve } from 'node:path';
 import { Config } from './config/config';
-import { registerConsoleApi } from './console/index.js';
-import { registerCommands } from './core/command/index.js';
+import { registerConsoleApi } from './console';
+import { registerCommands } from './core/command';
 import { RegexGuardRule } from './types';
-import { provideDebugLog, provideRuleServices } from './services/index.js';
-import { registerMiddleware } from './runtime/index.js';
+import { provideDebugLog, provideRuleServices } from './services';
+import { registerMiddleware } from './runtime';
 import zhCN from './locales/zh-CN.json';
 
 export const name = 'regex-guard';
@@ -30,9 +30,9 @@ declare module '@koishijs/plugin-console' {
 
 export * from './config/config';
 export * from './core';
-export * from './runtime/index.js';
-export * from './services/index.js';
-export * from './console/index.js';
+export * from './runtime';
+export * from './services';
+export * from './console';
 export * from './types';
 
 declare module 'koishi' {

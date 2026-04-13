@@ -1,2 +1,2 @@
-export * from './executor.js';
-export * from './middleware.js';
+export * from './executor';
+export * from './middleware';

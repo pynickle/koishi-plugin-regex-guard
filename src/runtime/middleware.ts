@@ -1,8 +1,8 @@
 import type { Context, Next, Session } from 'koishi';
-import type { Config } from '../config/config.js';
-import { evaluateMessage } from '../core/engine.js';
-import { executeActionPlan } from './executor.js';
-import type { DebugLogEntry } from '../types/index.js';
+import type { Config } from '../config/config';
+import { evaluateMessage } from '../core/engine';
+import { executeActionPlan } from './executor';
+import type { DebugLogEntry } from '../types';
 
 function createRuntimeDebugEntry(
     eventType: DebugLogEntry['eventType'],

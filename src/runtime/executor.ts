@@ -1,6 +1,6 @@
 import type { Session } from 'koishi';
-import type { DebugLogService } from '../services/debug-log.js';
-import type { ActionPlan, DebugLogEntry, RegexGuardRule } from '../types/index.js';
+import type { DebugLogService } from '../services/debug-log';
+import type { ActionPlan, DebugLogEntry, RegexGuardRule } from '../types';
 
 type ActionName = 'recall' | 'reply' | 'mute';
 

@@ -1,7 +1,7 @@
-import type { Config } from '../config/config.js';
-import { evaluateMessage } from '../core/engine.js';
-import { localizeErrorMessage } from '../locales/index.js';
-import '../services/index.js';
+import type { Config } from '../config/config';
+import { evaluateMessage } from '../core/engine';
+import { localizeErrorMessage } from '../locales';
+import '../services';
 import type {
     ActionPlan,
     DebugLogEntry,
@@ -10,7 +10,7 @@ import type {
     MatchResult,
     RegexGuardRule,
     RegexGuardRuleInput,
-} from '../types/index.js';
+} from '../types';
 
 export interface ConsoleApiResponse<T> {
     success: boolean;
