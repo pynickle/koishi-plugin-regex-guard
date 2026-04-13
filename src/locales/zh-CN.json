@@ -2,27 +2,8 @@
   "pluginName": "正则守卫",
   "pluginDescription": "管理、校验和整理正则规则。",
   "config": {
-    "groups": {
-      "permissions": "权限与调试",
-      "rules": "规则配置",
-      "console": "控制台"
-    },
-    "fields": {
-      "adminIds": "管理员 ID",
-      "debugMode": "调试模式",
-      "enabled": "启用插件",
-      "defaultScope": "默认作用域",
-      "maxRules": "最大规则数",
-      "consoleEnabled": "启用控制台页"
-    },
-    "hints": {
-      "adminIds": "允许管理规则的用户 ID 列表。",
-      "debugMode": "输出更多调试信息。",
-      "enabled": "关闭后将不处理任何规则。",
-      "defaultScope": "新建规则的默认作用范围。",
-      "maxRules": "单个机器人实例允许保存的最大规则数量。",
-      "consoleEnabled": "在 Koishi 控制台中注册一个页面入口。"
-    }
+    "adminIds": "管理员 ID",
+    "debugMode": "调试模式"
   },
   "commands": {
     "rguard": {

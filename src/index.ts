@@ -72,8 +72,6 @@ export function apply(ctx: Context, cfg: Config) {
     );
 
     ctx.inject(['console'], (ctx) => {
-        if (!cfg.consoleEnabled) return;
-
         ctx.console.addEntry({
             dev: resolve(__dirname, '../client/index.ts'),
             prod: resolve(__dirname, '../dist'),

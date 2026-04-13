@@ -34,7 +34,6 @@ function flushDebugEvents(ctx: Context, events: DebugLogEntry[]): void {
 
 export function registerMiddleware(ctx: Context, cfg: Config) {
     return ctx.middleware(async (session: Session, next: Next) => {
-        if (!cfg.enabled) return next();
         if (!session.guildId) return next();
         if (!session.content?.trim()) return next();
 
