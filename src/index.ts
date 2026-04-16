@@ -1,13 +1,15 @@
-import { Context } from 'koishi';
-import {} from '@koishijs/plugin-console';
 import { resolve } from 'node:path';
+
+import {} from '@koishijs/plugin-console';
+import { Context } from 'koishi';
+
 import { Config } from './config/config';
 import { registerConsoleApi } from './console';
 import { registerCommands } from './core/command';
-import { RegexGuardRule } from './types';
-import { provideDebugLog, provideRuleServices } from './services';
-import { registerMiddleware } from './runtime';
 import zhCN from './locales/zh-CN.json';
+import { registerMiddleware } from './runtime';
+import { provideDebugLog, provideRuleServices } from './services';
+import { RegexGuardRule } from './types';
 
 export const name = 'regex-guard';
 

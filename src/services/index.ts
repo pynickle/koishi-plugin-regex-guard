@@ -1,4 +1,5 @@
 import type { Context } from 'koishi';
+
 import { DebugLogService } from './debug-log';
 import { RuleImportExportService, ruleImportExportService } from './import-export';
 import { RuleService, ruleService } from './rule-service';

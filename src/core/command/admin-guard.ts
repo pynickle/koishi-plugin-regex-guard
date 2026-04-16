@@ -1,4 +1,5 @@
 import type { Session } from 'koishi';
+
 import type { Config } from '../../config/config';
 
 export function isAdmin(session: Session, cfg: Config): boolean {

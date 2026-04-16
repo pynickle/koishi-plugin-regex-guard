@@ -1,8 +1,9 @@
 import type { Context, Session } from 'koishi';
+
 import type { Config } from '../../config/config';
-import { evaluateMessage } from '../engine';
 import { localizeErrorMessage } from '../../locales';
 import type { ImportErrorDetail, RegexGuardRule, RegexGuardRuleInput } from '../../types';
+import { evaluateMessage } from '../engine';
 import { requireAdmin } from './admin-guard';
 
 const PAGE_SIZE = 10;

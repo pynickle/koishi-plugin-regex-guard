@@ -1,4 +1,5 @@
 import type { Context } from 'koishi';
+
 import type { ImportExportPayload, ImportResult, RegexGuardRuleInput } from '../types';
 import { RuleService, ruleService } from './rule-service';
 
